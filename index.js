@@ -8,9 +8,11 @@ var options = {
 
 console.log('test');
 var server = gps.server(options,function(device,connection){
-    console.log(device, connection)
+    console.log('connection', connection)
+    console.log('device', device)
 
     device.on("connected",function(data){
+        console.log('data', data)
 
         console.log("I'm a new device connected");
         return data;
@@ -18,6 +20,7 @@ var server = gps.server(options,function(device,connection){
     });
 
     device.on("login_request",function(device_id,msg_parts){
+        console.log('loginreq', device_id, msg_parts)
 
         console.log('Hey! I want to start transmiting my position. Please accept me. My name is '+device_id);
 
@@ -29,6 +32,7 @@ var server = gps.server(options,function(device,connection){
     
 
     device.on("ping",function(data){
+        console.log('dataping', data)
         //this = device
         console.log("I'm here: "+data.latitude+", "+data.longitude+" ("+this.getUID()+")");
 
