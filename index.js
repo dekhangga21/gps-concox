@@ -6,18 +6,15 @@ var options = {
     'device_adapter'        : "TK103"
 }
 
-console.log('test');
 var server = gps.server(options,function(device,connection){
-    console.log('connection', connection)
-    console.log('device', device)
 
-    /*device.on("connected",function(data){
+    device.on("connected",function(data){
         console.log('data', data)
 
         console.log("I'm a new device connected");
         return data;
 
-    });*/
+    });
 
     device.on("login_request",function(device_id,msg_parts){
         console.log('loginreq', device_id, msg_parts)
