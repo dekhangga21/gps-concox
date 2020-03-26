@@ -2,7 +2,7 @@ var gps = require("./node_modules/gps-tracking");
 
 var options = {
     'debug'                 : true, //We don't want to debug info automatically. We are going to log everything manually so you can check what happens everywhere
-    'port'                  : process.env.PORT || 8080,
+    'port'                  : process.env.PORT || 3000,
     'device_adapter'        : "GT06"
 }
 
