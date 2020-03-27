@@ -26,6 +26,15 @@ var server = gps.server(options,function(device,connection){
         console.log("Ok, "+device_id+", you're accepted!");
 
     });
+
+    device.on("heartbeat",function(device_id,msg_parts){
+        console.log('heartbeatreq', device_id, msg_parts)
+
+        this.receive_heartbeat(msg_parts); 
+
+        console.log("Ok, "+device_id+", heartbeat successfull!");
+
+    });
     
 
     device.on("ping",function(data){
